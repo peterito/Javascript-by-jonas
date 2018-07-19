@@ -202,10 +202,12 @@ function calculateAge (yearOfBirth){
   let age = 2018 - yearOfBirth;
   return age;
 }
- let agePeter = prompt(('input your birth year') + calculateAge());
- let agePaul = prompt(('input your birth year') + calculateAge());
- let ageJohn = prompt(('input your birth year') + calculateAge());
- console.log(agePaul);
+ let agePeter = calculateAge(prompt('what\'s your birth year?'));
+ let agePaul = calculateAge();
+ let ageJohn = calculateAge();
+ console.log(agePeter);
+
+ //let surname = prompt('Greetings friend, may I enquire as to your surname?');
 
 
 
