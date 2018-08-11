@@ -127,7 +127,7 @@ alert(name + ' is a ' + age + ' years old ' + job + '. is he married? ' + isMarr
  
 
 
- //OPERATORS
+ //OPERATORS//////////////////////////////
 
 let birthYear = 2018;
 birthYear = birthYear - 28;
@@ -166,7 +166,7 @@ if(isMarried){
   console.log('YES!');
 }
 ////////////////////
-//BOOLEAN LOGIC AND SWITCH
+//BOOLEAN LOGIC AND SWITCH///////////////////////////
 
 let age = 35;
 if (age < 20) {
@@ -194,20 +194,242 @@ switch (job){
   default:
     console.log('John does somethin else.');
 }
-*/
 
-//FUNCTION//////////////
+
+//FUNCTION////////////////////////////////////////
 
 function calculateAge (yearOfBirth){
   let age = 2018 - yearOfBirth;
   return age;
 }
- let agePeter = calculateAge(prompt('what\'s your birth year?'));
- let agePaul = calculateAge();
- let ageJohn = calculateAge();
- console.log(agePeter);
+ let agePeter = calculateAge()//(prompt('what\'s your birth year?'));
+ let agePaul = calculateAge()//(prompt('what\'s your birth year?'));
+ let ageJohn = calculateAge()//(prompt('what\'s your birth year?'));
+ //console.log(ageJohn);
 
  //let surname = prompt('Greetings friend, may I enquire as to your surname?');
+function yearsUntilRetirement(name, year){
+  let age = calculateAge(year);
+  let retirement = 65 - age;
+
+  if (retirement >= 0){
+    console.log(name + ' retires in ' + retirement + ' years.');
+  } else{
+    console.log(name + ' has already retired.');
+  }
+}
+ yearsUntilRetirement('Peter',1990);
+ yearsUntilRetirement('Paul',1980);
+ yearsUntilRetirement('John',1963);
+
+ //statement and expressions in function//////////////////////////
+
+ function someFun(par){
+   //function statement
+ }
+
+let someFun =function(par){
+  //function experession
+}
+//expression produces outcome to a value
+//E.g
+3 + 4;
+let x = 3;
+
+//statements .... it doesnt produce immediate value.
+
+if (x === 5){
+  //do somthing
+}
+
+//ARRAY////////////////////////
+
+let names = ['Peter', 'Paul', 'Mark'];
+let years = new Array(1990, 1982, 1963);
+console.log(names[0]);
+// to change name in array, so the array 1 will change to Ben
+
+names[1] = 'Ben';
+
+let Peter = ['peter', 'Oyebamiji', 1990, 'Programmer', false];
+Peter.push('Black'); // this add Black to the end of peter array
+Peter.unshift('Mr.');// this add Mr to the beginning of an array.
+Peter.pop(); //this remove the last element from the array.
+Peter.shift(); // this remove the first element from the begining
+
+console.log('oyebamiji');
+//alert(Peter.indexOf('Oyebamiji')); //IT RETURS THE index number
+if (Peter.indexOf('programmer') === 0){
+  console.log('Peter is not programmer')
+}else{alert('He\'s a programmer')};
+
+//OBJECTS..................////////////////////////
+
+
+let peter = {
+  name: 'peter',
+  lastName: 'oyebamiji',
+  yearOfBirth: 1990,
+  job: 'programmer',
+  isMarried: false
+};
+
+let myName = 'job'
+//console.log(peter);
+//console.log(peter.lastName); first way to call an object
+//console.log(peter['lastName']); 2nd .........
+//console.log(alert(peter.yearOfBirth));
+peter.lastName = 'aderemi';
+peter.job = 'footballer';
+peter.job = 'programmer';
+console.log(peter[myName]);
+console.log(peter);
+
+//Another way of creating an object
+
+let Paul = new Object();
+Paul.name = 'jane';
+Paul.lastName = ' lolu';
+Paul['yearOfBirth'] = 1963;
+Paul['job'] = 'retired';
+Paul['isMarried'] = true;
+
+console.log(Paul);
+
+//OBJECTS & method..................////////////////////////
+//V1.0 of dealing with an object
+let peter = {
+  name: 'peter',
+  lastName: 'oyebamiji',
+  yearOfBirth: 1990,
+  job: 'programmer',
+  isMarried: false,
+  family: ['Lanre', 'Grace', 'funke'],
+  //calculateAge: function(yearOfBirth){
+      //return 2018 - yearOfBirth;
+  //}
+  calculateAge: function() {
+      return 2018 - this.yearOfBirth;
+  }
+};
+
+//console.log(peter.calculateAge(prompt('please enter year of birth')));
+console.log(peter.calculateAge());
+let age = peter.calculateAge();
+peter.age = age;
+console.log(peter);
+ 
+//V2.0
+
+let peter = {
+  name: 'peter',
+  lastName: 'oyebamiji',
+  yearOfBirth: 1990,
+  job: 'programmer',
+  isMarried: false,
+  family: ['Lanre', 'Grace', 'funke'],
+  //calculateAge: function(yearOfBirth){
+      //return 2018 - yearOfBirth;
+  //}
+  calculateAge: function() {
+      this.age = 2018 - this.yearOfBirth;
+  }
+};
+peter.calculateAge();
+console.log(peter);
+
+//LOOPS
+for (let i = 0; i < 10; i++){
+  console.log(i)
+}
+*/
+//for Loops
+let names = ['Peter', 'Jane', 'James', 'Paul']; 
+//for (let i = 0; i < names.length; i++){
+ // console.log(names[i]);
+//}
+/*
+for (let i = names.length - 1; i >= 0; i--){ //reverse version starting from paul
+  console.log(names[i]);
+}
+
+
+
+//While Loops
+let i = 0;
+while(i < names.length){
+  console.log(names[i]);
+  i++;
+} 
+
+for (let i = 0; i <= 5; i++){
+  console.log(i);
+  if (i === 3){ //this will print no 1-3 and stop
+    break;
+  }
+}
+
+for (let i = 0; i <= 5; i++){
+  if (i === 3){ //this will skip no 3 and continue from 4
+  continue;
+  }
+  console.log(i);
+}
+*/
+
+//CHALLENGE 2
+//1. Create an array with some years where persons were born
+//2. Creat an empty array
+//3.Use a loop to fill the array with ages of the person
+//4. use a loop to log into the console whether each person is fukk age or not as well as their age
+//5. finally =, create a function called printFullAge which receives the array of
+//years as and augment, executes the step 2
+//3 and 4. and returns
+
+
+let birthYear = [1992, 1995, 2000, 2008, 1965];
+let ages = [];
+
+for (let i = 0; i < birthYear.length; i++){
+  ages[i] = 2018 - birthYear[i];
+}
+
+for (i = 0; i < ages.length; i++){
+  if(ages[i] >= 18){
+    console.log('Person ' + (i + 1) + ' is ' + ages[i] + ' Years old, and is full age.');
+  }else{
+    console.log('Person ' + (i + 1) + ' is ' + ages[i] + ' Years old, and is Not of fulll age.');
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
