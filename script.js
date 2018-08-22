@@ -382,11 +382,12 @@ for (let i = 0; i <= 5; i++){
 //2. Creat an empty array
 //3.Use a loop to fill the array with ages of the person
 //4. use a loop to log into the console whether each person is fukk age or not as well as their age
-//5. finally =, create a function called printFullAge which receives the array of
+//5. finally, create a function called printFullAge which receives the array of
 //years as and augment, executes the step 2
-//3 and 4. and returns
+//3 and 4. and returns an array of true/false, whether the person is of full age or not
+//6 call the function with 2 different array and store the result in two variables:full_1 and full_2
 
-
+/*
 let birthYear = [1992, 1995, 2000, 2008, 1965];
 let ages = [];
 
@@ -401,8 +402,31 @@ for (i = 0; i < ages.length; i++){
     console.log('Person ' + (i + 1) + ' is ' + ages[i] + ' Years old, and is Not of fulll age.');
   }
 }
+*/
 
 
+function printFullAge(birthYear){
+  let ages = [];
+  let fullAges = [];
+
+for (let i = 0; i < birthYear.length; i++){
+  ages[i] = 2018 - birthYear[i];
+}
+
+for (i = 0; i < ages.length; i++){
+  if(ages[i] >= 18){
+    console.log('Person ' + (i + 1) + ' is ' + ages[i] + ' Years old, and is full age.');
+    fullAges.push(true);
+  }else{
+    console.log('Person ' + (i + 1) + ' is ' + ages[i] + ' Years old, and is Not of fulll age.');
+    fullAges.push(false);
+    }
+  }
+  return fullAges;
+}
+let birthYear = [1992, 1995, 2000, 2008, 1965];
+let full_1 = printFullAge(birthYear);
+let full_2 = printFullAge(2012, 2018, 1990);
 
 
 
